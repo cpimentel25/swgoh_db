@@ -21,7 +21,7 @@ export interface CharacterData {
 
 export interface CharacterDocument extends CharacterData, Document { }
 
-const CharacterSchema = new Schema({
+const CharacterSchema = new Schema<CharacterDocument>({
   name: String,
   base_id: String,
   pk: Number,

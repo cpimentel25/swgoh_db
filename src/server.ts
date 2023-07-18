@@ -4,15 +4,20 @@ import * as dotenv from 'dotenv';
 import axios from 'axios';
 import UnitsModel from './models/UnitsModel';
 import CharacterModel from './models/CharacterModel';
+import graphQlConfig from './config/graphql';
+import { createServer } from 'http';
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 4000;
 
 dotenv.config();
 app.use(express.json());
 
+export const httpServer = createServer(app)
+
 async function main() {
   await connectDB(); // -> Connection with MongoDB
+  await graphQlConfig(app); // -> graphQl Server
 };
 
 app.post('/api/data', async (req, res) => {

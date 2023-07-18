@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx ts-node-dev --respawn src/server.ts"
+    "dev": "npx ts-node-dev --respawn src/server.ts",
+    "compile": "tsc",
+    "start": "npm run compile && node src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -18,9 +20,11 @@
   },
   "homepage": "https://github.com/cpimentel25/swgoh_db#readme",
   "dependencies": {
+    "apollo-server-express": "^3.12.0",
     "axios": "^1.4.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "graphql": "^16.7.1",
     "mongoose": "^7.3.4"
   },
   "devDependencies": {

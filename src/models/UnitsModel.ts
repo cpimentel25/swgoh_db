@@ -8,10 +8,7 @@ export interface UnitsData {
   power: number;
   description: string;
   combat_type: number;
-  gear_levels: {
-    tier: number;
-    gear: string[];
-  }[];
+  gear_levels: { tier: number, gear: string[] }[];
   alignment: number;
   categories: string[];
   ability_classes: string[];
@@ -29,7 +26,7 @@ export interface UnitsData {
 
 export interface UnitsDocument extends UnitsData, Document { }
 
-const UnitsSchema: Schema = new Schema({
+const UnitsSchema: Schema = new Schema<UnitsDocument>({
   name: String,
   base_id: String,
   url: String,
