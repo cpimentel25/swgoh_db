@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/cpimentel25/swgoh_db#readme",
   "dependencies": {
+    "@types/dotenv": "^8.2.0",
     "apollo-server-express": "^3.12.0",
     "axios": "^1.4.0",
     "dotenv": "^16.3.1",
