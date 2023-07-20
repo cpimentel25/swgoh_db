@@ -48,8 +48,25 @@ export const typeDefs = `#graphql
     zeta_ability_ids: [String]
   }
 
+  type Ships {
+    name: String
+    base_id: String
+    url: String
+    image: String
+    power: Int
+    description: String
+    combat_type: Int
+    alignment: String
+    categories: [String]
+    ability_classes: [String]
+    role: String
+    capital_ship: Boolean
+    activate_shard_count: Int
+  }
+
   type Query {
     characters: [Character]
     units: [Units]
+    ships: [Ships]
   }
 `;
