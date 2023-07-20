@@ -1,6 +1,9 @@
 import { gql } from 'apollo-server-express';
 
-export const typeDefs = `#graphql
+// export const typeDefs = `#graphql
+export const typeDefs = gql`
+  scalar JSONObject
+
   type GearLevel {
     tier: Int
     gear: [String]
@@ -64,9 +67,36 @@ export const typeDefs = `#graphql
     activate_shard_count: Int
   }
 
+  type Ingredient {
+    gear: String
+    amount: Int
+  }
+
+  type Recipe {
+    base_id: String
+    result_id: String
+    cost: Int
+    ingredients: [Ingredient]
+  }
+
+  type Gears {
+    base_id: String
+    recipes: [Recipe]
+    tier: Int
+    required_level: Int
+    stats: JSONObject
+    mark: String
+    cost: Int
+    image: String
+    url: String
+    ingredients: [Ingredient]
+    name: String
+  }
+
   type Query {
     characters: [Character]
     units: [Units]
     ships: [Ships]
+    gears: [Gears]
   }
 `;
